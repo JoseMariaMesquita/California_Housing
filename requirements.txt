@@ -1,4 +1,6 @@
-# TODO: Las dependencias para ejecutar app.py en producción.
-# Puedes incluir las necesarias para entrenar el modelo tambien.
-# Revisa los imports de app.py y decide cuáles son necesarias.
-
+fastapi==0.115.12
+uvicorn==0.34.0
+joblib==1.4.2
+pandas==2.2.3
+requests==2.32.3
+scikit-learn==1.6.1
