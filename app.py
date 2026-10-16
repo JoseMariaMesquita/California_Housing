@@ -18,6 +18,7 @@ import requests
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 
+MODEL_PATH = "modelo_california.pkl"
 # TODO: URL "raw" del modelo en TU repositorio de GitHub. Formato:
 # https://raw.githubusercontent.com/<usuario>/<repositorio>/main/modelo_california.pkl
 MODEL_URL = "https://raw.githubusercontent.com/JoseMariaMesquita/California_Housing/main/modelo_california.pkl"
