@@ -2,8 +2,7 @@
 
 Solo tienes que completar las partes marcadas con TODO.
 El resto del código ya está hecho.
-Autores: <nombre1>, <nombre2>
-
+Autores: MesquitaJM, SanchezL
 Ejecución en local (con modelo_california.pkl generado en el ejercicio 1):
     uvicorn app:app --reload
 Comando de arranque en Render (Start Command):
