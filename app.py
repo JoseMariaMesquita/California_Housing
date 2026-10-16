@@ -18,7 +18,6 @@ import requests
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 
-MODEL_PATH = "modelo_california.pkl"
 # TODO: URL "raw" del modelo en TU repositorio de GitHub. Formato:
 # https://raw.githubusercontent.com/<usuario>/<repositorio>/main/modelo_california.pkl
 MODEL_URL = "https://raw.githubusercontent.com/JoseMariaMesquita/California_Housing/main/modelo_california.pkl"
@@ -47,8 +46,11 @@ def download_model(url: str = MODEL_URL, path: str = MODEL_PATH):
     resultado con response.raise_for_status() y escribe response.content en
     el fichero abriéndolo en modo binario ("wb").
     """
-    # TODO: implementa la descarga
-    raise NotImplementedError("Completa download_model()")
+    response = requests.get(url, timeout=DOWNLOAD_TIMEOUT)
+    response.raise_for_status()
+
+    with open(path, "wb") as f:
+        f.write(response.content)
 
 
 def load_model(path: str = MODEL_PATH):
@@ -84,3 +86,7 @@ def predict(features: HouseFeatures):
     X = pd.DataFrame([features.model_dump()])
     prediction = model.predict(X)[0]
     return {"MedHouseVal": float(prediction)}
+
+
+
+
